@@ -1,0 +1,1 @@
+SELECT * FROM pandemusic.tabla_artistas;
