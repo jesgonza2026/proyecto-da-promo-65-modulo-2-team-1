@@ -38,15 +38,14 @@ SELECT
 
 SELECT 
     genre AS Genero,
-	COUNT(CASE WHEN year IN (2018, 2019) THEN 1 END) AS "2018-2019 (Pre)",
-	COUNT(CASE WHEN year IN (2018, 2019) THEN 1 END) AS "2018-2019 (Pre)",
-    COUNT(CASE WHEN year IN (2020, 2021) THEN 1 END) AS "2020-2021 (Pandemia)",
-    COUNT(CASE WHEN year = 2022 THEN 1 END) AS "2022 (Post)",
-    COUNT(*) AS Total_Global
+    FORMAT(COUNT(CASE WHEN year IN (2018, 2019) THEN 1 END), 0, 'de_DE') AS "2018-2019 (Pre)",
+    FORMAT(COUNT(CASE WHEN year IN (2020, 2021) THEN 1 END), 0, 'de_DE') AS "2020-2021 (Pandemia)",
+    FORMAT(COUNT(CASE WHEN year = 2022 THEN 1 END), 0, 'de_DE') AS "2022 (Post)",
+    FORMAT(COUNT(*), 0, 'de_DE') AS total_global
 	FROM canciones
 	WHERE year BETWEEN 2018 AND 2022
 	GROUP BY genre
-	ORDER BY Total_Global DESC;
+	ORDER BY total_global DESC;
 
 /* Pregunta 3: ¿Qué artistas pertenecen al género musical Hip Hop? */ 
 
